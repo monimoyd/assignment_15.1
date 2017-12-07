@@ -1,0 +1,47 @@
+Program for Task 1: Write a simple program to show inheritance
+
+abstract class Shape {
+    def printArea()
+}
+class Rectangle(val param1:Float, val param2:Float) extends Shape {
+    val length:Float = param1
+    val breadth:Float = param2
+    override def printArea() = println("Area of Rectangle =" + (length * breadth))
+}
+class Triangle(val param1:Float, val param2:Float) extends Shape {
+    val base:Float = param1
+    val height:Float = param2
+    override def printArea() = println("Area of Triangle =" + (0.5 * base * height))
+}
+class Circle(val param:Float) extends Shape {
+    val radius:Float = param
+    override def printArea() = println("Area of Circle =" + (3.14 * radius * radius))
+}
+var p: Shape = new  Rectangle(4, 3)
+p.printArea
+p= new Triangle(4,3)
+p.printArea
+p= new Circle(4)
+p.printArea
+
+Program for Task 1: Write a simple program to show mulitple inheritance
+
+trait BaseTrait {
+    def print() { println("Trait: BaseTrait") }
+}
+trait A extends BaseTrait {
+    override def print() { println("Trait: A") }
+}
+trait B  extends BaseTrait{
+    override def print() { println("Trait: B") }
+}
+class BaseClass {
+    def print() { println("Class: BaseClass") }
+}
+class C extends BaseClass with A with B  {
+    override def print() { println("Class: C") }
+}
+object Main extends App {
+   (new C).print()
+}
+
